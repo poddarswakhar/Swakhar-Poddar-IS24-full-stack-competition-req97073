@@ -110,7 +110,7 @@ class NewProductForm extends React.Component {
             value={this.defaultIfEmpty(this.state.methodology)}
           />
         </FormGroup>
-        <Button>Confirm</Button>
+        <Button style={{ backgroundColor: "#385a8a" }}>Confirm</Button>
       </Form>
     );
   }

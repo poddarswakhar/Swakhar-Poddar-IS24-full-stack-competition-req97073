@@ -17,7 +17,7 @@ class NewProductModal extends Component {
     const create = this.props.create;
 
     var title = "Editing Product";
-    var button = <Button onClick={this.toggle}>Edit</Button>;
+    var button = <Button style={{ backgroundColor: "#385a8a" }} onClick={this.toggle}>Edit</Button>;
     if (create) {
       title = "Creating New Product";
 
