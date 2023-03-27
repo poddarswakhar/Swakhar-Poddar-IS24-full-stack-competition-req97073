@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
-import NewStudentForm from "./NewStudentForm";
+import NewStudentForm from "./NewProductForm";
 
-class NewStudentModal extends Component {
+class NewProductModal extends Component {
   state = {
     modal: false
   };
@@ -16,17 +16,17 @@ class NewStudentModal extends Component {
   render() {
     const create = this.props.create;
 
-    var title = "Editing Student";
+    var title = "Editing Product";
     var button = <Button onClick={this.toggle}>Edit</Button>;
     if (create) {
-      title = "Creating New Student";
+      title = "Creating New Product";
 
       button = (
         <Button
           color="primary"
           className="float-right"
           onClick={this.toggle}
-          style={{ minWidth: "200px" }}
+          style={{ minWidth: "200px", backgroundColor: "#385a8a" }}
         >
           Create New
         </Button>
@@ -52,4 +52,4 @@ class NewStudentModal extends Component {
   }
 }
 
-export default NewStudentModal;
+export default NewProductModal;

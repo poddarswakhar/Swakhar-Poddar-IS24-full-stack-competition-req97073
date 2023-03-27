@@ -5,7 +5,7 @@ import axios from "axios";
 
 import { API_URL } from "../constants";
 
-class NewStudentForm extends React.Component {
+class NewProductForm extends React.Component {
   state = {
     pk: 0,
     name: "",
@@ -90,4 +90,4 @@ class NewStudentForm extends React.Component {
   }
 }
 
-export default NewStudentForm;
+export default NewProductForm;

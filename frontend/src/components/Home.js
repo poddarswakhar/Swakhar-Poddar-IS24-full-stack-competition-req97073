@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Col, Container, Row } from "reactstrap";
-import StudentList from "./StudentList";
-import NewStudentModal from "./NewStudentModal";
+import StudentList from "./ProductList";
+import NewStudentModal from "./NewProductModal";
 
 import axios from "axios";
 
