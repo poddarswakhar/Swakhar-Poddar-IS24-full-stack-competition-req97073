@@ -7,17 +7,19 @@ import { API_URL } from "../constants";
 
 class NewProductForm extends React.Component {
   state = {
-    pk: 0,
-    name: "",
-    email: "",
-    document: "",
-    phone: ""
+    productId: 0,
+    productName: "",
+    productOwnerName: "",
+    Developers: "",
+    scrumMasterName: "",
+    startDate: "",
+    methodology: ""
   };
 
   componentDidMount() {
     if (this.props.student) {
-      const { pk, name, document, email, phone } = this.props.student;
-      this.setState({ pk, name, document, email, phone });
+      const { productId, productName, productOwnerName, Developers, scrumMasterName, startDate, methodology} = this.props.student;
+      this.setState({ productId, productName, productOwnerName, Developers, scrumMasterName, startDate, methodology });
     }
   }
 
@@ -35,7 +37,7 @@ class NewProductForm extends React.Component {
 
   editStudent = e => {
     e.preventDefault();
-    axios.put(API_URL + this.state.pk, this.state).then(() => {
+    axios.put(API_URL + this.state.productId, this.state).then(() => {
       this.props.resetState();
       this.props.toggle();
     });
@@ -49,42 +51,66 @@ class NewProductForm extends React.Component {
     return (
       <Form onSubmit={this.props.student ? this.editStudent : this.createStudent}>
         <FormGroup>
-          <Label for="name">Name:</Label>
+          <Label for="productName">Product Name:</Label>
           <Input
             type="text"
-            name="name"
+            name="productName"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.name)}
+            required
+            value={this.defaultIfEmpty(this.state.productName)}
           />
         </FormGroup>
         <FormGroup>
-          <Label for="email">Email:</Label>
+          <Label for="productOwnerName">Product Owner:</Label>
           <Input
-            type="email"
-            name="email"
+            type="text"
+            name="productOwnerName"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.email)}
+            required
+            value={this.defaultIfEmpty(this.state.productOwnerName)}
           />
         </FormGroup>
         <FormGroup>
-          <Label for="document">Document:</Label>
+          <Label for="Developers">Developers (For multiple use comma):</Label>
           <Input
             type="text"
-            name="document"
+            name="Developers"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.document)}
+            required
+            value={this.defaultIfEmpty(this.state.Developers)}
           />
         </FormGroup>
         <FormGroup>
-          <Label for="phone">Phone:</Label>
+          <Label for="scrumMasterName">Scrum Master:</Label>
           <Input
             type="text"
-            name="phone"
+            name="scrumMasterName"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.phone)}
+            required
+            value={this.defaultIfEmpty(this.state.scrumMasterName)}
           />
         </FormGroup>
-        <Button>Send</Button>
+        <FormGroup>
+          <Label for="startDate">Start Date (YYYY-MM-DD):</Label>
+          <Input
+            type="date-input"
+            name="startDate"
+            onChange={this.onChange}
+            required
+            value={this.defaultIfEmpty(this.state.startDate)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="methodology">Methodology:</Label>
+          <Input
+            type="text"
+            name="methodology"
+            onChange={this.onChange}
+            required
+            value={this.defaultIfEmpty(this.state.methodology)}
+          />
+        </FormGroup>
+        <Button>Confirm</Button>
       </Form>
     );
   }

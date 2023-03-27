@@ -8,7 +8,7 @@ class ProductList extends Component {
   render() {
     const products = this.props.students;
     return (
-      <Table dark>
+      <Table striped>
         <thead>
           <tr>
             <th>Product Number</th>
@@ -52,7 +52,7 @@ class ProductList extends Component {
                   />
                   &nbsp;&nbsp;
                   <ConfirmRemovalModal
-                    pk={prod.pk}
+                    pk={prod.productId}
                     resetState={this.props.resetState}
                   />
                 </td>
