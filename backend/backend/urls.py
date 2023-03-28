@@ -20,4 +20,6 @@ from catalog import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/catalog/products/", views.products_api),
+    path("api/catalog/ret/", views.products_api_ret),
+    path("api/catalog/update/", views.data_del_up),
 ]
