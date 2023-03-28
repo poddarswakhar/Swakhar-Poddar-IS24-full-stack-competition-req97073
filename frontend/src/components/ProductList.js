@@ -47,7 +47,7 @@ class ProductList extends Component {
                 <td align="center">
                   <NewProductModal
                     create={false}
-                    prod={prod}
+                    products={prod}
                     resetState={this.props.resetState}
                   />
                   &nbsp;&nbsp;
