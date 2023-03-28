@@ -3,7 +3,7 @@ import { Modal, ModalHeader, Button, ModalFooter } from "reactstrap";
 
 import axios from "axios";
 
-import { API_URL } from "../constants";
+import { API_URL_D } from "../constants";
 
 class ConfirmRemovalModal extends Component {
   state = {
@@ -17,7 +17,7 @@ class ConfirmRemovalModal extends Component {
   };
 
   deleteProduct = pk => {
-    axios.delete(API_URL + pk).then(() => {
+    axios.delete(API_URL_D + "?id=" + pk).then(() => {
       this.props.resetState();
       this.toggle();
     });
