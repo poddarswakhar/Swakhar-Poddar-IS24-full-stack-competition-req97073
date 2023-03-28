@@ -6,12 +6,14 @@ import Footer from "./components/Footer";
 class App extends Component {
   render() {
     return (
-      <Fragment>
+      <div className="vh-100 d-flex flex-column">
         <Header />
-        <Home />
-        <br></br><br></br>
+        <div className="flex-grow-1">
+          <Home />
+          <br></br><br></br>
+        </div>
         <Footer />
-      </Fragment>
+      </div>
     );
   }
 }
