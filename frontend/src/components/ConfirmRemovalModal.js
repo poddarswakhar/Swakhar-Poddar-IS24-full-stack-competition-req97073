@@ -35,7 +35,7 @@ class ConfirmRemovalModal extends Component {
           </ModalHeader>
 
           <ModalFooter>
-            <Button type="button" onClick={() => this.toggle()}>
+            <Button type="button" onClick={() => this.toggle()} style = {{backgroundColor: "#385a8a"}}>
               Cancel
             </Button>
             <Button
