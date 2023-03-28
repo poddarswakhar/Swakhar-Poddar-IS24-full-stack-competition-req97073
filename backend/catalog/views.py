@@ -51,8 +51,12 @@ def products_api(request):
 
 @api_view(['PUT', 'DELETE'])
 def data_del_up(request):
+    """
+    will add later
+    http://127.0.0.1:3000/api/catalog/ret/?id=1
+    """
     try:
-        pk = request.query_params.get('pk')
+        pk = request.query_params.get('id')
         data = Product.objects.get(productId=pk)
     except data.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
@@ -67,3 +71,26 @@ def data_del_up(request):
 
 def health(request):
     return JsonResponse({'status': 'healthy'}, status=200)
+
+
+@api_view(['GET', 'POST'])
+def products_api_ret(request):
+    """
+    test will add later
+    http://127.0.0.1:3000/api/catalog/ret/?id=1
+    """
+
+    if request.method == 'GET':
+        prodId = request.query_params.get('id')
+
+        try:
+            temp_prod = Product.objects.filter(productId=prodId)
+
+        except:
+            return HttpResponse("DATA DOESN'T EXIST!")
+
+        serializer = ProductSerializers(temp_prod, context={'request': request}, many=True)
+        return Response(serializer.data)
+
+    else:
+        return HttpResponse("USE GET ONLY")
