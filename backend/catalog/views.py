@@ -68,6 +68,10 @@ def data_del_up(request):
             return Response(status=status.HTTP_204_NO_CONTENT)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    elif request.method == 'DELETE':
+        data.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 def health(request):
     return JsonResponse({'status': 'healthy'}, status=200)
