@@ -34,6 +34,10 @@ class NewProductForm extends React.Component {
     axios.post(API_URL, this.state).then(() => {
       this.props.resetState();
       this.props.toggle();
+    }).catch(error => {
+      alert("WARNING: Product is not Created! Check the fields again! Make sure the data is in desired format!");
+      console.error(error);
+      this.props.resetState();
     });
   };
 
@@ -42,6 +46,11 @@ class NewProductForm extends React.Component {
     e.preventDefault();
     this.state.Developers = this.state.Developers.toString().split(",");
     axios.put(API_URL_D + "?id=" + this.state.productId, this.state).then(() => {
+      this.props.resetState();
+      this.props.toggle();
+    }).catch(error => {
+      alert("WARNING: Product is not Updated! Check the fields again! Make sure the data is in desired format!");
+      console.error(error);
       this.props.resetState();
       this.props.toggle();
     });
