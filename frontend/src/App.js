@@ -1,14 +1,19 @@
 import React, { Component, Fragment } from "react";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
 
 class App extends Component {
   render() {
     return (
-      <Fragment>
+      <div className="vh-100 d-flex flex-column">
         <Header />
-        <Home />
-      </Fragment>
+        <div className="flex-grow-1">
+          <Home />
+          <br></br><br></br>
+        </div>
+        <Footer />
+      </div>
     );
   }
 }

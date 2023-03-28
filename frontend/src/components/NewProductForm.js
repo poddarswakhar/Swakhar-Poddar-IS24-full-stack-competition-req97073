@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 
 import axios from "axios";
 
-import { API_URL } from "../constants";
+import { API_URL, API_URL_D } from "../constants";
 
 class NewProductForm extends React.Component {
   state = {
@@ -17,8 +17,8 @@ class NewProductForm extends React.Component {
   };
 
   componentDidMount() {
-    if (this.props.student) {
-      const { productId, productName, productOwnerName, Developers, scrumMasterName, startDate, methodology} = this.props.student;
+    if (this.props.products) {
+      const { productId, productName, productOwnerName, Developers, scrumMasterName, startDate, methodology} = this.props.products;
       this.setState({ productId, productName, productOwnerName, Developers, scrumMasterName, startDate, methodology });
     }
   }
@@ -27,17 +27,30 @@ class NewProductForm extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  createStudent = e => {
+  createProduct = e => {
+    //this.state["Developers"] = this.state["Developers"].split(",");
     e.preventDefault();
+    this.state.Developers = this.state.Developers.toString().split(",");
     axios.post(API_URL, this.state).then(() => {
       this.props.resetState();
       this.props.toggle();
+    }).catch(error => {
+      alert("WARNING: Product is not Created! Check the fields again! Make sure the data is in desired format!");
+      console.error(error);
+      this.props.resetState();
     });
   };
 
-  editStudent = e => {
+  editProduct = e => {
+    //this.state["Developers"] = this.state["Developers"].split(",");
     e.preventDefault();
-    axios.put(API_URL + this.state.productId, this.state).then(() => {
+    this.state.Developers = this.state.Developers.toString().split(",");
+    axios.put(API_URL_D + "?id=" + this.state.productId, this.state).then(() => {
+      this.props.resetState();
+      this.props.toggle();
+    }).catch(error => {
+      alert("WARNING: Product is not Updated! Check the fields again! Make sure the data is in desired format!");
+      console.error(error);
       this.props.resetState();
       this.props.toggle();
     });
@@ -49,7 +62,7 @@ class NewProductForm extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={this.props.student ? this.editStudent : this.createStudent}>
+      <Form onSubmit={this.props.products ? this.editProduct : this.createProduct}>
         <FormGroup>
           <Label for="productName">Product Name:</Label>
           <Input
@@ -110,7 +123,7 @@ class NewProductForm extends React.Component {
             value={this.defaultIfEmpty(this.state.methodology)}
           />
         </FormGroup>
-        <Button>Confirm</Button>
+        <Button style={{ backgroundColor: "#385a8a" }}>Confirm</Button>
       </Form>
     );
   }

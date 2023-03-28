@@ -6,7 +6,7 @@ import ConfirmRemovalModal from "./ConfirmRemovalModal";
 
 class ProductList extends Component {
   render() {
-    const products = this.props.students;
+    const products = this.props.products;
     return (
       <Table striped>
         <thead>
@@ -47,7 +47,7 @@ class ProductList extends Component {
                 <td align="center">
                   <NewProductModal
                     create={false}
-                    prod={prod}
+                    products={prod}
                     resetState={this.props.resetState}
                   />
                   &nbsp;&nbsp;
