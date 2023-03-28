@@ -28,8 +28,9 @@ class NewProductForm extends React.Component {
   };
 
   createProduct = e => {
-    this.state["Developers"] = this.state["Developers"].split(",");
+    //this.state["Developers"] = this.state["Developers"].split(",");
     e.preventDefault();
+    this.state.Developers = this.state.Developers.toString().split(",");
     axios.post(API_URL, this.state).then(() => {
       this.props.resetState();
       this.props.toggle();
@@ -37,8 +38,9 @@ class NewProductForm extends React.Component {
   };
 
   editProduct = e => {
-    this.state["Developers"] = this.state["Developers"].split(",");
+    //this.state["Developers"] = this.state["Developers"].split(",");
     e.preventDefault();
+    this.state.Developers = this.state.Developers.toString().split(",");
     axios.put(API_URL_D + "?id=" + this.state.productId, this.state).then(() => {
       this.props.resetState();
       this.props.toggle();
