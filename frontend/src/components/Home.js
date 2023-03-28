@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Col, Container, Row } from "reactstrap";
-import StudentList from "./ProductList";
-import NewStudentModal from "./NewProductModal";
+import ProductList from "./ProductList";
+import NewProductModal from "./NewProductModal";
 
 import axios from "axios";
 
@@ -9,19 +9,19 @@ import { API_URL } from "../constants";
 
 class Home extends Component {
   state = {
-    students: []
+    products: []
   };
 
   componentDidMount() {
     this.resetState();
   }
 
-  getStudents = () => {
-    axios.get(API_URL).then(res => this.setState({ students: res.data }));
+  getProducts = () => {
+    axios.get(API_URL).then(res => this.setState({ products: res.data }));
   };
 
   resetState = () => {
-    this.getStudents();
+    this.getProducts();
   };
 
   render() {
@@ -29,15 +29,15 @@ class Home extends Component {
       <Container style={{ marginTop: "20px" }}>
         <Row>
           <Col>
-            <StudentList
-              students={this.state.students}
+            <ProductList
+              products={this.state.products}
               resetState={this.resetState}
             />
           </Col>
         </Row>
         <Row>
           <Col>
-            <NewStudentModal create={true} resetState={this.resetState} />
+            <NewProductModal create={true} resetState={this.resetState} />
           </Col>
         </Row>
       </Container>

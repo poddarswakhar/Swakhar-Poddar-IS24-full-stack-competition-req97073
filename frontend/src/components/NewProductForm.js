@@ -17,8 +17,8 @@ class NewProductForm extends React.Component {
   };
 
   componentDidMount() {
-    if (this.props.student) {
-      const { productId, productName, productOwnerName, Developers, scrumMasterName, startDate, methodology} = this.props.student;
+    if (this.props.products) {
+      const { productId, productName, productOwnerName, Developers, scrumMasterName, startDate, methodology} = this.props.products;
       this.setState({ productId, productName, productOwnerName, Developers, scrumMasterName, startDate, methodology });
     }
   }
@@ -27,7 +27,8 @@ class NewProductForm extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  createStudent = e => {
+  createProduct = e => {
+    this.state["Developers"] = this.state["Developers"].split(",");
     e.preventDefault();
     axios.post(API_URL, this.state).then(() => {
       this.props.resetState();
@@ -35,7 +36,7 @@ class NewProductForm extends React.Component {
     });
   };
 
-  editStudent = e => {
+  editProduct = e => {
     e.preventDefault();
     axios.put(API_URL + this.state.productId, this.state).then(() => {
       this.props.resetState();
@@ -49,7 +50,7 @@ class NewProductForm extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={this.props.student ? this.editStudent : this.createStudent}>
+      <Form onSubmit={this.props.products ? this.editProduct : this.createProduct}>
         <FormGroup>
           <Label for="productName">Product Name:</Label>
           <Input
