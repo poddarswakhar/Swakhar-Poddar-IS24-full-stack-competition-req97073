@@ -35,6 +35,7 @@ class NewProductModal extends Component {
 
     return (
       <Fragment>
+      <br></br>
         {button}
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>{title}</ModalHeader>
