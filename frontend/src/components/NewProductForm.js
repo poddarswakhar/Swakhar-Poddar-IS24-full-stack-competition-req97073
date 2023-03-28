@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 
 import axios from "axios";
 
-import { API_URL } from "../constants";
+import { API_URL, API_URL_D } from "../constants";
 
 class NewProductForm extends React.Component {
   state = {
@@ -37,8 +37,9 @@ class NewProductForm extends React.Component {
   };
 
   editProduct = e => {
+    this.state["Developers"] = this.state["Developers"].split(",");
     e.preventDefault();
-    axios.put(API_URL + this.state.productId, this.state).then(() => {
+    axios.put(API_URL_D + "?id=" + this.state.productId, this.state).then(() => {
       this.props.resetState();
       this.props.toggle();
     });
