@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 from django.http import HttpResponse, JsonResponse
+from django.db.models import Q
 
 
 @api_view(['GET', 'POST'])
@@ -94,6 +95,23 @@ def products_api_ret(request):
             return HttpResponse("DATA DOESN'T EXIST!")
 
         serializer = ProductSerializers(temp_prod, context={'request': request}, many=True)
+        return Response(serializer.data)
+
+    else:
+        return HttpResponse("USE GET ONLY")
+
+
+@api_view(['GET'])
+def search(request):
+    """
+    http://localhost:3000/api/catalog/src/?src=Alice%20Leex
+    """
+    if request.method == 'GET':
+        src_txt = str(request.query_params.get('src'))
+        if len(src_txt) > 0:
+            data = Product.objects.filter(Q(scrumMasterName__icontains=src_txt) | Q(Developers__icontains=src_txt))
+
+        serializer = ProductSerializers(data, context={'request': request}, many=True)
         return Response(serializer.data)
 
     else:

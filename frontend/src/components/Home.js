@@ -4,7 +4,7 @@ import ProductList from "./ProductList";
 import NewProductModal from "./NewProductModal";
 
 import axios from "axios";
-import { API_URL } from "../constants";
+import { API_URL, API_URL_S } from "../constants";
 
 class Home extends Component {
   state = {
@@ -30,7 +30,7 @@ class Home extends Component {
   };
 
   searchProducts = () => {
-    axios.get(API_URL + `?search=${this.state.searchTerm}`).then((res) => {
+    axios.get(API_URL_S + `?src=${this.state.searchTerm}`).then((res) => {
       this.setState({ products: res.data });
     });
   };
