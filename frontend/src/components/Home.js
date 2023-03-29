@@ -62,10 +62,10 @@ class Home extends Component {
                     borderRadius: "20px",
                     padding: "10px 20px",
                     boxSizing: "border-box",
-                    backgroundColor: "#fcba19"
+                    backgroundColor: "#385a8a"
                 }}
                 >
-                <b>Search</b>
+                <b style={{color: "white"}}>Search</b>
                 </button>
             </Col>
         </Row>
