@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path, include
 from catalog import views
+from catalog.views import health
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -23,4 +24,5 @@ urlpatterns = [
     path("api/catalog/ret/", views.products_api_ret),
     path("api/catalog/update/", views.data_del_up),
     path("api/catalog/src/", views.search),
+    path("api/catalog/health/", health, name='health_check'),
 ]

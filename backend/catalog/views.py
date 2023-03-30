@@ -75,7 +75,7 @@ def data_del_up(request):
 
 
 def health(request):
-    return JsonResponse({'status': 'healthy'}, status=200)
+    return HttpResponse(status=200)
 
 
 @api_view(['GET', 'POST'])

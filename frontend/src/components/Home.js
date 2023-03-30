@@ -4,12 +4,13 @@ import ProductList from "./ProductList";
 import NewProductModal from "./NewProductModal";
 
 import axios from "axios";
-import { API_URL, API_URL_S } from "../constants";
+import { API_URL, API_URL_S, API_URL_H } from "../constants";
 
 class Home extends Component {
   state = {
     products: [],
     searchTerm: "",
+    isHealthy: null,
   };
 
   componentDidMount() {
@@ -17,12 +18,18 @@ class Home extends Component {
   }
 
   getProducts = () => {
-    axios.get(API_URL).then(res => this.setState({ products: res.data }));
-  };
+    axios.get(API_URL).then(res => this.setState({ products: res.data, isHealthy: true }))
+    .catch(error => {
+      this.health();
+    });
+  }
 
   resetState = () => {
-    this.getProducts();
-    this.setState({ searchTerm: "" });
+    this.setState({ isHealthy: null }, () => {
+      // reset products and searchTerm after resetting health status
+      this.getProducts();
+      this.setState({ searchTerm: "" });
+    });
   };
 
   handleSearchChange = (event) => {
@@ -31,11 +38,41 @@ class Home extends Component {
 
   searchProducts = () => {
     axios.get(API_URL_S + `?src=${this.state.searchTerm}`).then((res) => {
-      this.setState({ products: res.data });
+      this.setState({ products: res.data, isHealthy: true });
+    }).catch(error => {
+      this.health();
     });
   };
 
+  health = () => {
+    axios.get(API_URL_H).then(response => {
+    console.log(response); // should log a 200 OK response
+    this.setState({ isHealthy: true });
+  })
+  .catch(error => {
+    console.error(error);
+    //alert("Component is not healthy! :(");
+    this.setState({ isHealthy: false });
+  });
+  }
+
   render() {
+    if (this.state.isHealthy === null) {
+      return (
+        <div className="text-center">
+          <h2>Loading . . . ⌛</h2>
+        </div>
+      );
+    }
+    else if (!this.state.isHealthy) {
+      return (
+        <div className="text-center">
+          <h1>⚠️</h1>
+          <h2>Component is not healthy!</h2>
+          <b>Check Running the Backend Server on Port 3000</b>
+        </div>
+      );
+    }
     return (
       <Container style={{ marginTop: "20px" }}>
         <div style={{ paddingLeft: "32%",}}>

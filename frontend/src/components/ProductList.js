@@ -26,7 +26,7 @@ class ProductList extends Component {
             {!products || products.length <= 0 ? (
               <tr>
                 <td colSpan="9" align="center">
-                  <b>No Products Registered Yet! Please Create New</b>
+                  <b>No Products!</b>
                 </td>
               </tr>
             ) : (
