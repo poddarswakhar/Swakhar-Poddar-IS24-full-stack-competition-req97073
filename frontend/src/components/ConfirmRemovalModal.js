@@ -20,6 +20,10 @@ class ConfirmRemovalModal extends Component {
     axios.delete(API_URL_D + "?id=" + pk).then(() => {
       this.props.resetState();
       this.toggle();
+    }).catch(error => {
+      alert("ERROR: Couldn't Delete the Product! Check the Console Log");
+      console.error(error);
+      this.props.resetState();
     });
   };
 
