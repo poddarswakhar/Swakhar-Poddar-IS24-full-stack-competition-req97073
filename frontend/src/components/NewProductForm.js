@@ -45,7 +45,7 @@ class NewProductForm extends React.Component {
     }).catch(error => {
       alert("WARNING: Product is not Created! Check the fields again! Make sure the Date is in desired format!");
       console.error(error);
-      this.props.resetState();
+      //this.props.resetState();
     });
   };
 

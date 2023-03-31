@@ -106,7 +106,11 @@ Product Number, Product Name, Scrum Master, Product Owner, Developer Names, Star
 
 - Screenshots
 
+![](./ss/us1.png)
+
 - Video
+
+[![Alt text](https://img.youtube.com/watch?v=oldwQpbMjBw.jpg)](https://www.youtube.com/watch?v=oldwQpbMjBw)
 
 <br></br>
 
@@ -120,7 +124,11 @@ Then I am able to answer the following questions on a form: Product Name, Scrum 
 
 - Screenshots
 
+![](./ss/us2.png)
+
 - Video
+
+[![](https://img.youtube.com/watch?v=0bltztDUEtM&feature=youtu.be.jpg)](https://www.youtube.com/watch?v=0bltztDUEtM&feature=youtu.be)
 
 <br></br>
 
@@ -133,7 +141,15 @@ Then I am able to edit the following fields: Product Name, Scrum Master, Product
 
 - Screenshots
 
+![](./ss/us3.png)
+
+![](./ss/us3_2.png)
+
 - Video
+
+[![](https://img.youtube.com/watch?v=3zOP2-c-A58.jpg)](https://www.youtube.com/watch?v=3zOP2-c-A58)
+
+[![](https://img.youtube.com/watch?v=vMu7rA3RO-E.jpg)](https://www.youtube.com/watch?v=vMu7rA3RO-E)
 
 <br></br>
 
@@ -147,8 +163,32 @@ As Alan, I want to search for a specific Developer name so that I can see all of
 
 - Screenshots
 
+![](./ss/usb.png)
+
+![](./ss/usb_2.png)
+
 - Video
+
+[![](https://img.youtube.com/watch?v=7xow1NUcSXQ.jpg)](https://www.youtube.com/watch?v=7xow1NUcSXQ)
 
 <br></br>
 
-## THANK YOU FOR YOUR TIME :)
+### Healthy Endpoint (Backend Server Turned Off)
+
+- Screenshots
+
+![](./ss/not%20healthy_2.png)
+
+![](./ss/not%20healthy.png)
+
+- Video
+
+[![](https://img.youtube.com/watch?v=xNtEslyE2bg.jpg)](https://www.youtube.com/watch?v=xNtEslyE2bg)
+
+<br></br>
+
+## Thanks for your time to this repo 🙌
+<br></br> 
+Swakhar Poddar
+<br>
+www.poddar.xyz 
