@@ -2,7 +2,7 @@
 
 Repository for competition for Gov of BC. This repo contains the web app for IMB Catalog task.
 
-<br></br>
+
 
 ## Project Structure
 
@@ -30,6 +30,7 @@ This is the root of the project.
 <li> Django Rest Framework </li>
 <li> Django Cors Headers </li>
 <li> drf-yasg </li>
+<br></br>
 <b><u> Frontend </u></b>
 <li> NodeJS </li>
 <li> Bootstrap </li>
@@ -51,7 +52,7 @@ cd frontend
 npm install
 ```
 
-For Backend this commands might come handy
+For Backend these commands might come handy
 
 ```
 pip install django djangorestframework django-cors-headers
