@@ -2,17 +2,22 @@ import React, { Component, Fragment } from "react";
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 import NewProductForm from "./NewProductForm";
 
+// file for the crate and edit product button and calling the form
+
 class NewProductModal extends Component {
+  // state track abnd management
   state = {
     modal: false
   };
 
+  // toggle track for the viewing
   toggle = () => {
     this.setState(previous => ({
       modal: !previous.modal
     }));
   };
 
+  // Again the render part is self sufficient to understand, using elements with some inline css, Note reusing the same NewProductForm for both edit and creating new products
   render() {
     const create = this.props.create;
 

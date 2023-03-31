@@ -5,7 +5,10 @@ import axios from "axios";
 
 import { API_URL, API_URL_D } from "../constants";
 
+// file used to create new product, and edit the product form
+
 class NewProductForm extends React.Component {
+  // state variable and state management
   state = {
     productId: 0,
     productName: "",
@@ -16,6 +19,7 @@ class NewProductForm extends React.Component {
     methodology: ""
   };
 
+  // mounting the form and setting the values
   componentDidMount() {
     if (this.props.products) {
       const { productId, productName, productOwnerName, Developers, scrumMasterName, startDate, methodology} = this.props.products;
@@ -23,10 +27,14 @@ class NewProductForm extends React.Component {
     }
   }
 
+  // listener, to change the state of the variables
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  // this the function that is called when confirmed is clicked, uses axios POST request to create the new product, if the creation of product
+  // fails if there is an error, an alert is shown to the user that "WARNING: Product is not Created! Check the fields again! Make sure the Date is in desired format!" 
+  // and error is logged on console
   createProduct = e => {
     //this.state["Developers"] = this.state["Developers"].split(",");
     e.preventDefault();
@@ -41,6 +49,9 @@ class NewProductForm extends React.Component {
     });
   };
 
+  // this is the method for the edit option and called when it is confiemd from the edit button, uses axios to make PUT request to update the product
+  // if it failes for error, an alert is shown to the user "WARNING: Product is not Updated! Check the fields again! Make sure the Date is in desired format!"
+  // and error is logged on console
   editProduct = e => {
     //this.state["Developers"] = this.state["Developers"].split(",");
     e.preventDefault();
@@ -55,10 +66,12 @@ class NewProductForm extends React.Component {
     });
   };
 
+  // default check
   defaultIfEmpty = value => {
     return value === "" ? "" : value;
   };
 
+  // Again the render part is self sufficient to understand, using elements with some inline css, with all madatoy fields
   render() {
     return (
       <Form onSubmit={this.props.products ? this.editProduct : this.createProduct}>

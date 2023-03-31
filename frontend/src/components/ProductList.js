@@ -4,6 +4,10 @@ import NewProductModal from "./NewProductModal";
 
 import ConfirmRemovalModal from "./ConfirmRemovalModal";
 
+// This file is the file that displays all the list of the products after doing the query in the Home.js
+// also renders the remove confirmation when delete is pressed
+// Again the render part is self sufficient to understand, using elements with some inline css
+
 class ProductList extends Component {
   render() {
     const products = this.props.products;

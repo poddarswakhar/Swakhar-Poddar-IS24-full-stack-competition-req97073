@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 
+// Header file
+
 class Header extends Component {
+  // if it clicks on the logo the page reloads, for better user experience
+  handleDivClick = () => {
+    window.location.reload();
+  };
   render() {
     return (
       <div className="text-center" >
-        <div style={{backgroundColor: '#003366', borderBottom: "4px solid #fcba19" }}>
+        <div style={{backgroundColor: '#003366', borderBottom: "4px solid #fcba19" }} onClick={this.handleDivClick}>
             <img
             src="https://www2.gov.bc.ca/StaticWebResources/static/gov3/images/gov_bc_logo.svg"
             width="300"
