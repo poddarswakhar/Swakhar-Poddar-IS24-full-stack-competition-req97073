@@ -6,17 +6,22 @@ import NewProductModal from "./NewProductModal";
 import axios from "axios";
 import { API_URL, API_URL_S, API_URL_H } from "../constants";
 
+// This is the top heirarchy JS file
+
 class Home extends Component {
+  // the variable we have to keep track
   state = {
-    products: [],
-    searchTerm: "",
-    isHealthy: null,
+    products: [], // queryset
+    searchTerm: "", // for search param
+    isHealthy: null, // for healthy backend endpoint check
   };
 
+  // states management
   componentDidMount() {
     this.resetState();
   }
 
+  // using axios to do the GET request for all the product
   getProducts = () => {
     axios.get(API_URL).then(res => this.setState({ products: res.data, isHealthy: true }))
     .catch(error => {
@@ -24,6 +29,7 @@ class Home extends Component {
     });
   }
 
+  // reset state method for state management
   resetState = () => {
     this.setState({ isHealthy: null }, () => {
       // reset products and searchTerm after resetting health status
@@ -32,10 +38,12 @@ class Home extends Component {
     });
   };
 
+  // method for search button action
   handleSearchChange = (event) => {
     this.setState({ searchTerm: event.target.value });
   };
 
+  // using axios to do the GET request with the search param
   searchProducts = () => {
     axios.get(API_URL_S + `?src=${this.state.searchTerm}`).then((res) => {
       this.setState({ products: res.data, isHealthy: true });
@@ -44,6 +52,7 @@ class Home extends Component {
     });
   };
 
+  // method for checking the health state of backend
   health = () => {
     axios.get(API_URL_H).then(response => {
     console.log(response); // should log a 200 OK response
@@ -56,6 +65,8 @@ class Home extends Component {
   });
   }
 
+  // rendering the feont end, if the state is not healthy show not healthy message, in the meantime of the request to be made and the state to be updated, show Loading message
+  // The other render part is self sufficient to understand, using elements with some inline css
   render() {
     if (this.state.isHealthy === null) {
       return (

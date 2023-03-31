@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 
+// the top file that renders all the components
+
 class App extends Component {
   render() {
     return (

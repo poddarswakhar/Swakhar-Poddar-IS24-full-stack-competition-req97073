@@ -118,6 +118,7 @@ def health(request):
 
 
 # for swagger documentation
+# the below API isn't used as wrote a new one and replace the functionality with that one (data_del_up)
 @swagger_auto_schema(
     method='GET',
     operation_summary='Get all the Product Data based on the Product ID (productId)',
