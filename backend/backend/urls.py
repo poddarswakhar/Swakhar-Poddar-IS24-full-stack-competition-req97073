@@ -15,8 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
+from rest_framework import permissions
 from catalog import views
 from catalog.views import health
+from rest_framework.documentation import include_docs_urls
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="API Documentation for IMB Catalog",
+        default_version='v1',
+        description="API documentation for for IMB Catalog",
+    ),
+    public=True,
+    permission_classes=[permissions.AllowAny],
+)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -25,4 +39,5 @@ urlpatterns = [
     path("api/catalog/update/", views.data_del_up),
     path("api/catalog/src/", views.search),
     path("api/catalog/health/", health, name='health_check'),
+    path("api/api-docs", schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
