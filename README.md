@@ -128,7 +128,7 @@ Then I am able to answer the following questions on a form: Product Name, Scrum 
 
 - Video
 
-[![](https://img.youtube.com/watch?v=0bltztDUEtM&feature=youtu.be.jpg)](https://www.youtube.com/watch?v=0bltztDUEtM&feature=youtu.be)
+[![](https://img.youtube.com/watch?v=0bltztDUEtM.jpg)](https://www.youtube.com/watch?v=0bltztDUEtM)
 
 <br></br>
 
@@ -147,7 +147,7 @@ Then I am able to edit the following fields: Product Name, Scrum Master, Product
 
 - Video
 
-[![](https://img.youtube.com/watch?v=3zOP2-c-A58.jpg)](https://www.youtube.com/watch?v=3zOP2-c-A58)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3zOP2-c-A58" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 [![](https://img.youtube.com/watch?v=vMu7rA3RO-E.jpg)](https://www.youtube.com/watch?v=vMu7rA3RO-E)
 
