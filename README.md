@@ -110,7 +110,7 @@ Product Number, Product Name, Scrum Master, Product Owner, Developer Names, Star
 
 - Video
 
-[![Alt text](https://img.youtube.com/watch?v=oldwQpbMjBw.jpg)](https://www.youtube.com/watch?v=oldwQpbMjBw)
+[![Click For Video](https://img.youtube.com/watch?v=oldwQpbMjBw.jpg)](https://www.youtube.com/watch?v=oldwQpbMjBw)
 
 <br></br>
 
@@ -128,7 +128,7 @@ Then I am able to answer the following questions on a form: Product Name, Scrum 
 
 - Video
 
-[![](https://img.youtube.com/watch?v=0bltztDUEtM.jpg)](https://www.youtube.com/watch?v=0bltztDUEtM)
+[![Click For Video](https://img.youtube.com/watch?v=0bltztDUEtM.jpg)](https://www.youtube.com/watch?v=0bltztDUEtM)
 
 <br></br>
 
@@ -147,9 +147,9 @@ Then I am able to edit the following fields: Product Name, Scrum Master, Product
 
 - Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3zOP2-c-A58" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Click For Video](https://img.youtube.com/watch?v=3zOP2-c-A58.jpg)](https://www.youtube.com/watch?v=3zOP2-c-A58)
 
-[![](https://img.youtube.com/watch?v=vMu7rA3RO-E.jpg)](https://www.youtube.com/watch?v=vMu7rA3RO-E)
+[![Click For Video](https://img.youtube.com/watch?v=vMu7rA3RO-E.jpg)](https://www.youtube.com/watch?v=vMu7rA3RO-E)
 
 <br></br>
 
@@ -169,7 +169,7 @@ As Alan, I want to search for a specific Developer name so that I can see all of
 
 - Video
 
-[![](https://img.youtube.com/watch?v=7xow1NUcSXQ.jpg)](https://www.youtube.com/watch?v=7xow1NUcSXQ)
+[![Click For Video](https://img.youtube.com/watch?v=7xow1NUcSXQ.jpg)](https://www.youtube.com/watch?v=7xow1NUcSXQ)
 
 <br></br>
 
@@ -183,7 +183,7 @@ As Alan, I want to search for a specific Developer name so that I can see all of
 
 - Video
 
-[![](https://img.youtube.com/watch?v=xNtEslyE2bg.jpg)](https://www.youtube.com/watch?v=xNtEslyE2bg)
+[![Click For Video](https://img.youtube.com/watch?v=xNtEslyE2bg.jpg)](https://www.youtube.com/watch?v=xNtEslyE2bg)
 
 <br></br>
 
