@@ -10,7 +10,7 @@ def main():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
     try:
         from django.core.management import execute_from_command_line
-        runserver.default_port = "3000"
+        runserver.default_port = "3000"  # doing it for requirement of always starting the server at 3000
     except ImportError as exc:
         raise ImportError(
             "Couldn't import Django. Are you sure it's installed and "
