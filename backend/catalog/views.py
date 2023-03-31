@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from drf_yasg import openapi
+
 from .models import Product
 from .serializers import *
 from rest_framework.response import Response
@@ -6,26 +8,22 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from django.http import HttpResponse, JsonResponse
 from django.db.models import Q
+from drf_yasg.utils import swagger_auto_schema
 
 
+@swagger_auto_schema(
+    method='GET',
+    operation_summary='Get all the Product Data',
+    responses={200: 'OK'}
+)
+@swagger_auto_schema(
+    method='POST',
+    operation_summary='Create Product Data',
+    request_body=ProductSerializers,
+    responses={201: 'Created'}
+)
 @api_view(['GET', 'POST'])
 def products_api(request):
-    """
-    Test will add doc later
-
-    {
-    "productName": "My Product 2",
-    "productOwnerName": "John Doe",
-    "Developers": [
-        "Jane Smith",
-        "Bob Johnson"
-    ],
-    "scrumMasterName": "Alice Lee",
-    "startDate": "2023-03-26",
-    "methodology": "Agile"
-}
-    """
-
     if request.method == 'GET':
         data = Product.objects.all()
         serializer = ProductSerializers(data, context={'request': request}, many=True)
@@ -50,12 +48,46 @@ def products_api(request):
         return HttpResponse("INVALID REQUEST!")
 
 
+@swagger_auto_schema(
+    method='put',
+    operation_summary='Update the Product based on the Product ID (productId). DATE FORMAT (YYYY-MM-DD)',
+    request_body=openapi.Schema(
+        type=openapi.TYPE_OBJECT,
+        properties={
+            'productName': openapi.Schema(type=openapi.TYPE_STRING),
+            'productOwnerName': openapi.Schema(type=openapi.TYPE_STRING),
+            'Developers': openapi.Schema(in_=openapi.IN_QUERY, type=openapi.TYPE_ARRAY, items=openapi.Schema(type=openapi.TYPE_STRING), description='Array of Developers'),
+            'scrumMasterName': openapi.Schema(type=openapi.TYPE_STRING),
+            'startDate': openapi.Schema(type=openapi.FORMAT_DATE),
+            'methodology': openapi.Schema(type=openapi.TYPE_STRING)
+        },
+        required=['productName', 'productOwnerName', 'Developers', 'scrumMasterName', 'startDate', 'methodology']
+    ),
+    responses={200: 'OK', 400: 'Bad Request', 404: 'Not Found'},
+    manual_parameters=[
+        openapi.Parameter(
+            name='id',
+            in_=openapi.IN_QUERY,
+            type=openapi.TYPE_INTEGER,
+            description='productId'
+        )
+    ]
+)
+@swagger_auto_schema(
+    method='DELETE',
+    operation_summary='Delete the Product Data based on the Product ID (productId)',
+    responses={200: 'OK'},
+    manual_parameters=[
+        openapi.Parameter(
+            name='id',
+            in_=openapi.IN_QUERY,
+            type=openapi.TYPE_INTEGER,
+            description='productId'
+        )
+    ]
+)
 @api_view(['PUT', 'DELETE'])
 def data_del_up(request):
-    """
-    will add later
-    http://127.0.0.1:3000/api/catalog/ret/?id=1
-    """
     try:
         pk = request.query_params.get('id')
         data = Product.objects.get(productId=pk)
@@ -78,13 +110,21 @@ def health(request):
     return HttpResponse(status=200)
 
 
-@api_view(['GET', 'POST'])
+@swagger_auto_schema(
+    method='GET',
+    operation_summary='Get all the Product Data based on the Product ID (productId)',
+    responses={200: 'OK'},
+    manual_parameters=[
+        openapi.Parameter(
+            name='id',
+            in_=openapi.IN_QUERY,
+            type=openapi.TYPE_INTEGER,
+            description='productId'
+        )
+    ]
+)
+@api_view(['GET'])
 def products_api_ret(request):
-    """
-    test will add later
-    http://127.0.0.1:3000/api/catalog/ret/?id=1
-    """
-
     if request.method == 'GET':
         prodId = request.query_params.get('id')
 
@@ -101,6 +141,19 @@ def products_api_ret(request):
         return HttpResponse("USE GET ONLY")
 
 
+@swagger_auto_schema(
+    method='GET',
+    operation_summary='Get all the Product Data based on the Search Parameter for Scrum Master or Developer Name',
+    responses={200: 'OK'},
+    manual_parameters=[
+        openapi.Parameter(
+            name='src',
+            in_=openapi.IN_QUERY,
+            type=openapi.TYPE_STRING,
+            description='Name For (Scrum Master or Developer)'
+        )
+    ]
+)
 @api_view(['GET'])
 def search(request):
     """
